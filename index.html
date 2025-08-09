@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta & Basic SEO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YOUR NAME — Developer Portfolio</title>
+    <meta name="theme-color" content="#0b0f14" />
+
+    <!-- Font: Inter (variable) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- GSAP core + ScrollTrigger via CDN -->
+    <!-- Use pinned versions for stability; swap versions as needed per GSAP docs -->
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> <!-- [9][18][15] -->
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script> <!-- [9][18][15] -->
+
+    <!-- VanillaTilt via CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script> <!-- [8][1][17] -->
+
+    <!-- Import maps for Three.js ES modules (pinned version) -->
+    <!-- This pattern allows clean `import 'three'` and `three/addons/*` without a bundler -->
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.8.0/dist/es-module-shims.js" crossorigin="anonymous"></script> <!-- [7][10][16] -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+        }
+      }
+    </script> <!-- [7][10][16] -->
+  </head>
+
+  <body>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Header / Nav -->
+    <header class="site-header">
+      <a class="logo" href="#hero" aria-label="Go to top">DHRUV GUPTA</a>
+      <button class="hamburger" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero" class="hero" aria-label="Hero">
+      <div class="hero-left">
+        <h1 class="headline">
+          <span class="neon">DHRUV GUPTA</span>
+        </h1>
+        <p class="tagline">Full Stack Developer • UI/UX • Performance Engineer</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-ghost" href="assets/dhruv resume.pdf" download>Download Resume</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <!-- Three.js canvas wrapper (lazy-enhanced) -->
+        <div class="three-wrap" data-fallback>
+          <canvas id="hero-canvas" aria-label="Decorative 3D animation" role="img"></canvas>
+          <div class="css-fallback" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section" aria-label="About">
+      <div class="container">
+        <div class="card tilt flip" data-tilt data-tilt-glare data-tilt-max="8" data-tilt-speed="800">
+          <div class="card-face card-front">
+            <img class="avatar" src="assets/profile.jpg" alt="Portrait of YOUR NAME" loading="lazy" />
+            <h2>About Me</h2>
+            <p>Short bio about your experience, passions, and focus on craft, performance, and user-centered design.</p>
+            <ul class="quick-stats">
+              <li><strong>Education:</strong> B.Tech / M.Tech</li>
+              <li><strong>Location:</strong> Gwalior, MP</li>
+            </ul>
+            <p class="hint">Tap/click to flip</p>
+          </div>
+          <div class="card-face card-back" aria-hidden="true">
+            <h3>More Details</h3>
+            <p>Recent highlights: shipped PWA, optimized LCP to <1.5s, built design system, led accessibility pass.</p>
+            <p>Interests: 3D web, motion design, tooling, DX.</p>
+            <p class="hint">Tap/click to flip back</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section" aria-label="Skills">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill">
+            <div class="skill-head">
+              <div class="icon-stack" aria-hidden="true">
+                <span class="icon-l1">JS</span><span class="icon-l2">{} </span><span class="icon-l3">ES</span>
+              </div>
+              <span>JavaScript</span>
+            </div>
+            <div class="bar" data-level="90"><span></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head">
+              <div class="icon-stack"><span class="icon-l1">R</span><span class="icon-l2">⚛</span><span class="icon-l3">UI</span></div>
+              <span>React</span>
+            </div>
+            <div class="bar" data-level="85"><span></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head">
+              <div class="icon-stack"><span class="icon-l1">Py</span><span class="icon-l2">∑</span><span class="icon-l3">AI</span></div>
+              <span>Python</span>
+            </div>
+            <div class="bar" data-level="80"><span></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head">
+              <div class="icon-stack"><span class="icon-l1">DA</span><span class="icon-l2">📊</span><span class="icon-l3">ETL</span></div>
+              <span>Data Analysis</span>
+            </div>
+            <div class="bar" data-level="75"><span></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head">
+              <div class="icon-stack"><span class="icon-l1">C</span><span class="icon-l2">++</span><span class="icon-l3">⚙</span></div>
+              <span>C++</span>
+            </div>
+            <div class="bar" data-level="70"><span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section" aria-label="Projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div id="project-grid" class="project-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Modal (accessible) -->
+    <div id="project-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-dialog" role="document">
+        <button class="modal-close" aria-label="Close" data-close>&times;</button>
+        <h3 id="modal-title">Project Title</h3>
+        <div class="modal-body">
+          <div class="carousel" aria-roledescription="carousel" aria-label="Project images">
+            <button class="carousel-nav prev" aria-label="Previous image">&#8592;</button>
+            <div class="carousel-track" id="carousel-track"></div>
+            <button class="carousel-nav next" aria-label="Next image">&#8594;</button>
+          </div>
+          <p class="modal-desc"></p>
+          <div class="modal-tags"></div>
+          <div class="modal-links">
+            <a class="btn btn-primary" target="_blank" rel="noopener" data-repo>Repo</a>
+            <a class="btn btn-ghost" target="_blank" rel="noopener" data-demo>Live Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <section id="contact" class="section" aria-label="Contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <form id="contact-form" class="contact-form" method="POST" novalidate>
+          <!-- Honeypot -->
+          <input type="text" name="company" id="company" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="jane@example.com" required />
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" placeholder="Let's collaborate" required />
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <div class="actions">
+            <button type="submit" class="btn btn-primary">Send</button>
+            <p class="form-note">No backend configured. Falls back to mailto. Example Formspree endpoint is commented in JS.</p>
+          </div>
+        </form>
+
+        <div class="social-row" aria-label="Social links">
+          <a class="social" href="#" aria-label="GitHub">
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12,.5A12,12,0,0,0,0,12.6,12,12,0,0,0,8.2,24c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6a3.2,3.2,0,0,0-1.4-1.8c-1.1-.8.1-.8.1-.8a2.5,2.5,0,0,1,1.8,1.2,2.6,2.6,0,0,0,3.6,1,2.7,2.7,0,0,1,.8-1.6C7,16.7,4.3,15.7,4.3,11.3a4.6,4.6,0,0,1,1.2-3.2,4.3,4.3,0,0,1,.1-3.1s1-.3,3.2,1.2a11.2,11.2,0,0,1,5.8,0c2.2-1.5,3.2-1.2,3.2-1.2a4.3,4.3,0,0,1,.1,3.1,4.6,4.6,0,0,1,1.2,3.2c0,4.4-2.7,5.4-5.3,5.7a2.9,2.9,0,0,1,.8,2.3v3.5c0,.3.2.7.8.6A12,12,0,0,0,24,12.6,12,12,0,0,0,12,.5Z"/></svg>
+          </a>
+          <a class="social" href="#" aria-label="LinkedIn">
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0zM8 8h4.8v2.2h.1c.7-1.3 2.3-2.7 4.7-2.7 5 0 5.9 3.3 5.9 7.6V24H18V16.8c0-1.7 0-3.9-2.4-3.9s-2.8 1.9-2.8 3.8V24H8z"/></svg>
+          </a>
+          <a class="social" href="#" aria-label="YouTube">
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5V8.5L15.8 12z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> YOUR NAME. Built with love and neon.</p>
+      </div>
+    </footer>
+
+    <!-- App scripts -->
+    <script type="module" src="js/projects.js"></script>
+    <script type="module" src="js/three-scene.js"></script>
+    <script type="module" src="js/ui.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
